@@ -43,10 +43,18 @@ class TestBooksCollector:
         assert favorites.get_books_genre() != None
 
 
-    # №3 Проверка наличия жанра у книги
+    # №3 Проверка у добавленной книги есть жанр
     def test_add_new_book_set_book_genre(self):
         collector = BooksCollector()
 
         collector.add_new_book("Гарри Поттер")
         collector.set_book_genre("Гарри Поттер", "Фантастика")
         assert collector.get_book_genre("Гарри Поттер") == "Фантастика"
+
+    # №4 Проверка у добавленной книги нет жанра
+    def test_add_new_book_not_set_book_genre(self):
+        collector = BooksCollector()
+
+        collector.add_new_book("Гарри Поттер")
+        collector.set_book_genre("Гарри Поттер","")
+        assert collector.get_book_genre("Гарри Поттер") == ""
