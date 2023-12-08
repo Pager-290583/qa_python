@@ -86,6 +86,15 @@ class TestBooksCollector:
         # print(collector.books_genre)
         assert collector.get_book_genre(name) in genre
 
+    # №7 Проверка параметризации: Добавили список книг и добавили книги в Фавориты
+    @pytest.mark.parametrize('name', ['Гарри Поттер', 'Винни Пух', 'Аленький цветочек', 'Золушка'])
+    def test_add_new_books_add_books_in_favorites(self, name):
+        collector = BooksCollector()
 
+        collector.add_new_book(name)
+        collector.add_book_in_favorites(name)
 
-    # №7 Проверка:
+        assert len(collector.get_list_of_favorites_books()) == 1
+        assert name in collector.favorites
+
+        print(collector.favorites)
