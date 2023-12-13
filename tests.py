@@ -48,7 +48,7 @@ class TestBooksCollector:
         assert len(collector.favorites) == 0
 
 
-    # №5 Проверка: Удаление жанра у книги
+    # №5 Проверка: Удаление книги из фаворитов /опечатался тут
     def test_delete_book_in_favorites(self):
         collector = BooksCollector()
         name = "Гарри Поттер"
